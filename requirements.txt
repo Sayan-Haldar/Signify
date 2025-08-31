@@ -1,9 +1,7 @@
-# Python version (use 3.10 for best compatibility with TensorFlow 2.15)
 Flask==3.0.0
 Flask-PyMongo==2.3.0
 pymongo==4.6.1
-tensorflow==2.15.0
+tensorflow==2.20.0
 scikit-learn==1.3.2
 numpy==1.24.3
 Werkzeug==3.0.1
-
