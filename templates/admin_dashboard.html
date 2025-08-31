@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Admin Dashboard</div>
+      <img src="/static/signify.jpg" alt="Logo" class="logo">
+      <a href="/">Home</a>
+      <a href="/logout">Logout</a>
+  </nav>
+
+  <div class="dashboard-container">
+    <h2>All Users Logs</h2>
+    <table id="adminLogsTable">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Date</th>
+          <th>Confidence</th>
+          <th>Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="/static/admin_dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Signify</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <img src="/static/signify.jpg" alt="Logo" class="logo">
+      Signify
+    </div>
+  </nav>
+
+  <header>
+    <h1>Verify Signature</h1>
+    <p class="subtitle">Upload and verify authenticity with AI-powered comparison</p>
+  </header>
+
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/register">Register</a></p>
+    <div id="loginMessage"></div>
+  </div>
+
+  <script src="/static/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signature Verification</title>
+  <link rel="stylesheet" href="/static/style2.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <img src="/static/signify.jpg" alt="Logo" class="logo">
+      Signify
+    </div>
+    <div>
+      <span id="welcomeText">
+        {% if session.username %}{{ session.username }} ({{ session.role }}){% endif %}
+      </span>
+      {% if session.role == 'user' %}
+        <button onclick="window.location.href='/user_dashboard'">Dashboard</button>
+      {% elif session.role == 'admin' %}
+        <button onclick="window.location.href='/admin_dashboard'">Admin</button>
+      {% endif %}
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <div class="bg-white">
+    <h1>Signature Verification</h1>
+    <p class="subtitle">Upload and verify authenticity with AI-powered comparison</p>
+
+    <div>
+      <label for="original">Original Signature</label>
+      <input type="file" id="original" accept="image/*">
+      <img id="preview-original" class="hidden">
+
+      <label for="test">Test Signature</label>
+      <input type="file" id="test" accept="image/*">
+      <img id="preview-test" class="hidden">
+
+      <button id="verifyBtn">Verify</button>
+    </div>
+
+    <!-- Spinner -->
+    <div id="spinner" class="hidden spinner"></div>
+
+    <div class="result hidden">
+      <p id="resultText"></p>
+      <div class="w-full bg-gray-200 rounded-full">
+        <div id="progress"></div>
+      </div>
+      <p id="confidenceText"></p>
+    </div>
+  </div>
+
+</body>
+</html>

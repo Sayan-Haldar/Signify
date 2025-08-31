@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f6fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 15px 30px;
+  background: #2c3e50;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+.logo {
+  width: 80px;  
+  height: 60px; 
+  border-radius: 0px;
+  margin-right: 10px;
+  margin-left: 20px;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+header {
+  text-align: center;
+  margin: 30px 0;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+.form-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.dashboard-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+form input, form select, form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+button {
+  padding: 6px 12px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #555;
+}
+
+
+
+input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+input:focus, select:focus {
+  border-color: #3498db;
+}
+
+button {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+p {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#loginMessage {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: red;
+}
