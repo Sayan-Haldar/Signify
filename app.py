@@ -3,36 +3,25 @@ from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash
 from routes import init_routes
 import os
-from dotenv import load_dotenv
-
-
-load_dotenv()
 
 app = Flask(__name__)
 
+# Secret key from environment
 app.secret_key = os.getenv("SECRET_KEY", "fallbacksecret")
 
-
+# MongoDB URI
 db_url = os.getenv("ATLASDB_URL")
 if not db_url:
-    raise RuntimeError("ATLASDB_URL not found in .env")
+    raise RuntimeError("ATLASDB_URL not found in environment")
 
-print("DB_URL loaded successfully")
 app.config["MONGO_URI"] = db_url
-
-# Initialize Mongo
 mongo = PyMongo(app)
 
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "SAYAN")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "sayan@123")
 
-print("Admin name from env:", ADMIN_USERNAME)
-
 def ensure_admin():
     """Ensure default admin exists in DB"""
-    if mongo.db is None:
-        raise RuntimeError("MongoDB connection failed. Check ATLASDB_URL.")
-
     try:
         admin = mongo.db.users.find_one({"username": ADMIN_USERNAME})
         if not admin:
@@ -45,11 +34,11 @@ def ensure_admin():
         else:
             print("Admin already exists, skipping insert.")
     except Exception as e:
-        raise RuntimeError(f"Failed in ensure_admin: {e}")
+        print(f"Warning: Failed to ensure admin: {e}")
 
-ensure_admin()
-
+# Initialize routes and create admin
 init_routes(app, mongo)
+ensure_admin()
 
 @app.route("/health")
 def health_check():
@@ -59,7 +48,7 @@ def health_check():
     except Exception as e:
         return {"status": "error", "db": str(e)}, 500
 
-
 if __name__ == "__main__":
     os.makedirs("uploads", exist_ok=True)
-    app.run(debug=True)
+    # debug should be False for production
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False)
