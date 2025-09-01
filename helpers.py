@@ -3,6 +3,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from sklearn.metrics.pairwise import cosine_similarity
 from model_loader import model
+from sklearn.preprocessing import normalize
 
 def extract_features(img_path):
     img = image.load_img(img_path, target_size=(224, 224))
@@ -15,8 +16,9 @@ def extract_features(img_path):
 def verify_signatures(original_path, test_path):
     features1 = extract_features(original_path)
     features2 = extract_features(test_path)
-
-    similarity = cosine_similarity(features1, features2)[0][0]
+    f1 = normalize(features1)
+    f2 = normalize(features2)
+    similarity = cosine_similarity(f1, f2)[0][0]
     threshold = 0.75
     match = similarity >= threshold
 
